@@ -1,5 +1,6 @@
 const Purchase = require("./Purchase");
 const { products } = require("../config/config");
+const { getArrayTotal } = require("../helpers/appHelpers");
 
 //Compras del sistema
 class Shopping {
@@ -27,8 +28,8 @@ class Shopping {
 
   // Algoritmo para obtener el cambio
   getChange(price, paymentTotal) {
-    //prettier-ignore
-    let change = 0, acumulator = 0;
+    let change = 0,
+      acumulator = 0;
     //prettier-ignore
     let tenCoins = 0, fiftyCoins = 0, hundredCoins = 0;
     //prettier-ignore
@@ -58,11 +59,6 @@ class Shopping {
     return Array(number).fill(coin);
   }
 
-  // Obtener la sumatoria de los arreglos
-  getArrayTotal(array) {
-    return array.reduce((acc, cur) => acc + cur, 0);
-  }
-
   //Impresión del ticket de cada compra
   printPurchase(purchase, index) {
     //prettier-ignore
@@ -71,8 +67,8 @@ class Shopping {
     console.log(`Orden #${index}`);
     console.log(`Producto: ${name}`);
     console.log(`Precio: $${price}`);
-    console.log(`Total pagado: $${this.getArrayTotal(payment)}`);
-    console.log(`Total cambio: $${this.getArrayTotal(change)}`);
+    console.log(`Total pagado: $${getArrayTotal(payment)}`);
+    console.log(`Total cambio: $${getArrayTotal(change)}`);
     console.log(`Operaciones para el cálculo: ${operations}`);
     console.log("------------------------\n");
   }

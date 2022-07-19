@@ -1,6 +1,8 @@
 require("colors");
 // Console Functions
 const { setMenu, pause, readInput } = require("./helpers/consoleFunctions");
+// App Functions
+const { getArrayTotal } = require("./helpers/appHelpers");
 // Clase de Compras
 const Shopping = require("./models/Shopping");
 
@@ -40,13 +42,13 @@ const main = async () => {
           paymentTotal
         );
 
-        if (shopping.getArrayTotal(change) > 0) {
+        if (getArrayTotal(change) > 0) {
           console.log("\nSu cambio es: \n");
           change.forEach((coin) => {
             console.log(`\t${coin}`);
           });
           console.log("------------------");
-          console.log(`\n TOTAL: ${shopping.getArrayTotal(change)}`);
+          console.log(`\n TOTAL: ${getArrayTotal(change)}`);
         }
 
         //Salvar compra en el historial
