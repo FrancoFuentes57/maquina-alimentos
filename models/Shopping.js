@@ -28,8 +28,8 @@ class Shopping {
 
   // Algoritmo para obtener el cambio
   getChange(price, paymentTotal) {
-    let change = 0,
-      acumulator = 0;
+    //prettier-ignore
+    let change = 0, acumulator = 0;
     //prettier-ignore
     let tenCoins = 0, fiftyCoins = 0, hundredCoins = 0;
     //prettier-ignore
@@ -62,7 +62,7 @@ class Shopping {
   //Impresión del ticket de cada compra
   printPurchase(purchase, index) {
     //prettier-ignore
-    const {product:{name,price}, payment, change, operations} = purchase;
+    const {product:{ name,price }, payment, change, operations} = purchase;
     console.log("------------------------");
     console.log(`Orden #${index}`);
     console.log(`Producto: ${name}`);
